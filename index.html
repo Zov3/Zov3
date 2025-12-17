@@ -3,143 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zov3</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+  <title>Terminal • Zov</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0b10;
-      --card:#12121a;
-      --accent:#8b5cf6;
+      --bg:#050507;
+      --panel:#0b0b10;
+      --green:#22c55e;
       --text:#e5e7eb;
       --muted:#9ca3af;
+      --accent:#8b5cf6;
     }
-
     *{box-sizing:border-box}
-
     body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:#000;
-  color:var(--text);
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-    .card{
-      width:100%;
-      max-width:420px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:24px;
-      padding:24px;
-      box-shadow:0 20px 40px rgba(0,0,0,0.5);
-      backdrop-filter: blur(6px);
+      margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+      background:radial-gradient(900px 500px at 50% -10%, #121226, var(--bg));
+      font-family:'JetBrains Mono', monospace;color:var(--text);
     }
-
-    /* AVATAR */
-    .avatar{
-      width:96px;
-      height:96px;
-      border-radius:50%;
-      margin:0 auto 12px;
-      overflow:hidden;
-      background:#000;
-      box-shadow:0 0 25px rgba(0,0,0,0.6);
+    .terminal{
+      width:100%;max-width:720px;min-height:420px;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:16px;box-shadow:0 30px 60px rgba(0,0,0,.6);
+      overflow:hidden;backdrop-filter: blur(6px);
     }
-
-    .avatar img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transition:transform .3s ease;
+    .top{
+      display:flex;gap:8px;align-items:center;padding:10px 14px;background:rgba(0,0,0,.35);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
-
-    .avatar:hover img{
-      transform:scale(1.1);
+    .dot{width:10px;height:10px;border-radius:50%}
+    .r{background:#ef4444}.y{background:#f59e0b}.g{background:#22c55e}
+    .title{margin-left:8px;color:var(--muted);font-size:12px}
+    .screen{padding:16px;line-height:1.6}
+    .line{margin-bottom:6px}
+    .prompt{color:var(--green)}
+    .cmd{color:var(--accent)}
+    .out{color:var(--text)}
+    .muted{color:var(--muted)}
+    .input{
+      display:flex;gap:8px;align-items:center;margin-top:8px
     }
-
-    h1{
-      margin:8px 0 4px;
-      text-align:center;
-      font-size:24px;
-      font-weight:800;
+    input{
+      flex:1;background:transparent;border:none;outline:none;color:var(--text);
+      font-family:inherit;font-size:14px
     }
-
-    .tag{
-      text-align:center;
-      color:var(--muted);
-      font-size:14px;
-      margin-bottom:16px;
-    }
-
-    .links{
-      display:grid;
-      gap:12px;
-    }
-
-    .btn{
-      padding:14px 16px;
-      border-radius:14px;
-      background:var(--card);
-      border:1px solid rgba(255,255,255,0.08);
-      color:var(--text);
-      text-decoration:none;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      transition:transform .15s ease, border .15s ease, background .15s ease;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-      border-color:var(--accent);
-      background:rgba(139,92,246,0.08);
-    }
-
-    .btn span{
-      color:var(--muted);
-    }
-
-    footer{
-      margin-top:16px;
-      text-align:center;
-      font-size:12px;
-      color:var(--muted);
-      opacity:.7;
-    }
+    a{color:#22d3ee;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .blink{animation:blink 1s steps(1) infinite}
+    @keyframes blink{50%{opacity:0}}
   </style>
 </head>
-
 <body>
-  <main class="card">
-
-    <!-- AVATAR -->
-    <div class="avatar">
-      <!-- 🔴 REMPLACE JUSTE LE LIEN CI-DESSOUS -->
-      <img src="https://cdn.discordapp.com/attachments/1445780847922778112/1450604836612739092/telechargement.jfif?ex=6943cd47&is=69427bc7&hm=58821579944a8ad8fc36483709297d5a90859fd67060be962cd3375b404ac61b&" alt="Avatar">
+  <main class="terminal">
+    <div class="top">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="title">zov@terminal — profile</span>
     </div>
-
-    <h1>Zov</h1>
-    <div class="tag">French developer</div>
-
-    <section class="links">
-      <a class="btn" href="https://github.com/Zov3" target="_blank">
-        GitHub <span>Zov3</span>
-      </a>
-
-      <a class="btn" href="#">
-        Discord <span>3amv.</span>
-      </a>
-    </section>
-
-    <footer>
-      © 2025 • Zov3
-    </footer>
-
+    <div class="screen" id="screen">
+      <div class="line"><span class="prompt">$</span> <span class="cmd">help</span></div>
+      <div class="line out muted">Commandes : help, about, links, clear</div>
+      <div class="input">
+        <span class="prompt">$</span>
+        <input id="input" autofocus placeholder="tape une commande…" />
+        <span class="blink">▌</span>
+      </div>
+    </div>
   </main>
+
+<script>
+  const screen = document.getElementById('screen');
+  const input = document.getElementById('input');
+
+  const print = (html) => {
+    const d = document.createElement('div');
+    d.className = 'line out';
+    d.innerHTML = html;
+    screen.insertBefore(d, screen.lastElementChild);
+    screen.scrollTop = screen.scrollHeight;
+  };
+
+  const command = (txt) => {
+    const d = document.createElement('div');
+    d.className = 'line';
+    d.innerHTML = `<span class="prompt">$</span> <span class="cmd">${txt}</span>`;
+    screen.insertBefore(d, screen.lastElementChild);
+  };
+
+  input.addEventListener('keydown', e => {
+    if(e.key !== 'Enter') return;
+    const v = input.value.trim().toLowerCase();
+    if(!v) return;
+    command(v);
+    input.value='';
+
+    if(v === 'help'){
+      print('Commandes : <b>about</b>, <b>links</b>, <b>clear</b>');
+    } else if(v === 'about'){
+      print('<b>Zov</b> — French developer • dark web style');
+    } else if(v === 'links'){
+      print('GitHub → <a href="https://github.com/Zov3" target="_blank">github.com/Zov3</a>');
+      print('Discord → <span class="muted">3amv.</span>');
+    } else if(v === 'clear'){
+      [...screen.querySelectorAll('.line.out, .line:not(.input)')].forEach(el=>el.remove());
+    } else {
+      print('Commande inconnue. Tape <b>help</b>.');
+    }
+  });
+</script>
 </body>
 </html>
